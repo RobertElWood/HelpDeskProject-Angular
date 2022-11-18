@@ -1,3 +1,5 @@
+using HelpDeskSystem___Angular_Project.Models;
+
 namespace HelpDeskSystem___Angular_Project
 {
     public class Program
@@ -9,6 +11,7 @@ namespace HelpDeskSystem___Angular_Project
             // Add services to the container.
 
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<HelpDeskDbContext>();
 
             var app = builder.Build();
 
