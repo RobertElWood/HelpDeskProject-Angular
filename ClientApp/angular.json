@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "HelpDeskSystem___Angular_Project"
+  "defaultProject": "HelpDeskSystem___Angular_Project",
+  "cli": {
+    "analytics": false
+  }
 }
