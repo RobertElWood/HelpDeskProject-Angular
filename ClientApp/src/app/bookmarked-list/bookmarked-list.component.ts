@@ -5,16 +5,19 @@ import { HelpDeskServiceService } from '../help-desk-service.service';
 @Component({
   selector: 'app-bookmarked-list',
   templateUrl: './bookmarked-list.component.html',
-  styleUrls: ['./bookmarked-list.component.css']
+  styleUrls: ['./bookmarked-list.component.css'],
 })
 export class BookmarkedListComponent implements OnInit {
+  
+  bmTickets: BookmarkedTicket[] = [];
 
-  bmTickets : BookmarkedTicket[] = {} as BookmarkedTicket[]; 
-
-  constructor(private helpdeskAPI : HelpDeskServiceService) { }
+  constructor(private helpdeskAPI: HelpDeskServiceService) {}
 
   ngOnInit(): void {
-    this.helpdeskAPI.GetBookmarkedTickets().subscribe((results: BookmarkedTicket[]) => {this.bmTickets = results});
+    this.helpdeskAPI
+      .getBookmarkedTickets()
+      .subscribe((results: BookmarkedTicket[]) => {
+        this.bmTickets = results;
+      });
   }
-
 }
