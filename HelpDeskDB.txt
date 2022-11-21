@@ -1,0 +1,25 @@
+--Create database HelpDeskDB;
+
+--Create table Tickets(
+--Id int primary key identity(1,1),
+--IsResolved bit,
+--Problem nvarchar(200) not null,
+--Answer nvarchar(200),
+--PostedBy nvarchar(25) not null,
+--ResolvedBy nvarchar(25),
+--);
+
+--select * from Tickets;
+--Create table BookmarkedTickets(
+--Id int primary key identity(1,1),
+--IsResolved bit,
+--Problem nvarchar(200) not null,
+--Answer nvarchar(200),
+--PostedBy nvarchar(25) not null,
+--ResolvedBy nvarchar(25),
+--);
+
+--select * from BookmarkedTickets;
+
+--insert into Tickets
+--values(1, 'My cat is on fire.', 'Did you try restarting it?', 'Ferris Wheeler', 'Constance Noring');

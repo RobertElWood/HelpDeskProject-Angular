@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">HelpDeskSystem___Angular_Project</a>
+      <a class="navbar-brand" [routerLink]="['/']">The "Help" Desk</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -35,6 +35,16 @@
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
               >Fetch data</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/tickets-list']"
+              >Tickets</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/bookmarked-list']"
+              >Bookmarked</a
             >
           </li>
         </ul>
