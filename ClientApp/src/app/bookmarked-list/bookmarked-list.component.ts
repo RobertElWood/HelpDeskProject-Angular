@@ -9,12 +9,12 @@ import { HelpDeskServiceService } from '../help-desk-service.service';
 })
 export class BookmarkedListComponent implements OnInit {
 
-  @Input() bmTickets : BookmarkedTicket[] = {} as BookmarkedTicket[]; 
+  bmTickets : BookmarkedTicket[] = {} as BookmarkedTicket[]; 
 
   constructor(private helpdeskAPI : HelpDeskServiceService) { }
 
   ngOnInit(): void {
-    this.helpdeskAPI.GetBookmarkedTickets().subscribe((results: BookmarkedTicket[]) => {})
+    this.helpdeskAPI.GetBookmarkedTickets().subscribe((results: BookmarkedTicket[]) => {this.bmTickets = results});
   }
 
 }
