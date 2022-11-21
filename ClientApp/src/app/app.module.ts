@@ -30,11 +30,11 @@ import { BookmarkedListComponent } from './bookmarked-list/bookmarked-list.compo
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'tickets-list', component: TicketsListComponent},
-      { path: 'bookmarked-list', component: BookmarkedListComponent},
-    ])
+      { path: 'tickets-list', component: TicketsListComponent },
+      { path: 'bookmarked-list', component: BookmarkedListComponent },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
