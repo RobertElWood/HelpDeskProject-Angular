@@ -30,9 +30,9 @@ public partial class HelpDeskDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Bookmark__3214EC07860DDE6F");
 
             entity.Property(e => e.Answer).HasMaxLength(200);
-            entity.Property(e => e.PostedBy).HasMaxLength(25);
+            entity.Property(e => e.Poster).HasMaxLength(25);
             entity.Property(e => e.Problem).HasMaxLength(200);
-            entity.Property(e => e.ResolvedBy).HasMaxLength(25);
+            entity.Property(e => e.Commenter).HasMaxLength(25);
         });
 
         modelBuilder.Entity<Ticket>(entity =>
@@ -40,9 +40,9 @@ public partial class HelpDeskDbContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Tickets__3214EC0768EC0F1D");
 
             entity.Property(e => e.Answer).HasMaxLength(200);
-            entity.Property(e => e.PostedBy).HasMaxLength(25);
+            entity.Property(e => e.Poster).HasMaxLength(25);
             entity.Property(e => e.Problem).HasMaxLength(200);
-            entity.Property(e => e.ResolvedBy).HasMaxLength(25);
+            entity.Property(e => e.Commenter).HasMaxLength(25);
         });
 
         OnModelCreatingPartial(modelBuilder);
