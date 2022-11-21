@@ -1,1 +1,11 @@
-<p>tickets-list works!</p>
+<h3>Our Active Tickets:</h3>
+    <div *ngFor="let t of tickets">
+        <p>Id: {{t.id}}</p>
+        <p>Resolved: {{t.resolved}}</p>
+        <p>Question: {{t.problem}}</p>
+        <p>Answer: {{t.answer}}</p>
+        <p>Posted By: {{t.poster}}</p>
+        <p>Answered By: {{t.commenter}}</p>
+        <br>
+        <br>
+    </div>

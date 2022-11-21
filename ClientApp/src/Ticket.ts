@@ -1,9 +1,9 @@
 export interface Ticket
 {
     id : number;
-    isresolved : boolean;
+    resolved : boolean;
     problem : string;
     answer : string;
-    postedby : string;
-    resolvedby : string;
+    poster : string;
+    commenter : string;
 }
