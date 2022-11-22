@@ -26,7 +26,7 @@ export class HelpDeskServiceService {
   }
 
   addBookmarkedTicket(bmTicket: Bookmarked): Observable<any> {
-    //bmTicket.id = 0;
+    bmTicket.id = 0;
     console.log(bmTicket);
     return this.http.post(this.baseURL + 'api/Bookmarked', bmTicket);
   }

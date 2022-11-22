@@ -5,5 +5,5 @@ export interface User {
   poster: string;
   bookmarks: Bookmarked[];
 
-  // ticketsId: number;
+ 
 }

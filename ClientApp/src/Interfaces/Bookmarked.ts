@@ -5,6 +5,6 @@ export interface Bookmarked {
   id: number;
   userId: number;
   ticketsId: number;
-  // tickets: Ticket[];
-  // user?: User[];
+  tickets: Ticket[];
+  user?: User[];
 }
