@@ -24,7 +24,6 @@ export class TicketsListComponent implements OnInit {
 
   bookmarkTicket(index: number) {
     this.ticketToBookmark.userId = 1;
-    this.ticketToBookmark.id = 0;
     this.ticketToBookmark.ticketsId = index;
     this.helpdeskAPI
       .addBookmarkedTicket(this.ticketToBookmark)

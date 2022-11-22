@@ -29,29 +29,29 @@ namespace HelpDeskSystem___Angular_Project.Controllers
 
         // GET: api/Bookmarked/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Bookmarked>> GetBookmarkedTicket(int id)
+        public async Task<ActionResult<Bookmarked>> GetBookmarked(int id)
         {
-            var bookmarkedTicket = await _context.Bookmarked.FindAsync(id);
+            var bookmarked = await _context.Bookmarked.FindAsync(id);
 
-            if (bookmarkedTicket == null)
+            if (bookmarked == null)
             {
                 return NotFound();
             }
 
-            return bookmarkedTicket;
+            return bookmarked;
         }
 
         // PUT: api/Bookmarked/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBookmarkedTicket(int id, Bookmarked bookmarkedTicket)
+        public async Task<IActionResult> PutBookmarked(int id, Bookmarked bookmarked)
         {
-            if (id != bookmarkedTicket.Id)
+            if (id != bookmarked.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(bookmarkedTicket).State = EntityState.Modified;
+            _context.Entry(bookmarked).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace HelpDeskSystem___Angular_Project.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookmarkedTicketExists(id))
+                if (!BookmarkedExists(id))
                 {
                     return NotFound();
                 }
@@ -75,31 +75,31 @@ namespace HelpDeskSystem___Angular_Project.Controllers
         // POST: api/Bookmarked
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Bookmarked>> PostBookmarkedTicket(Bookmarked bookmarkedTicket)
+        public async Task<ActionResult<Bookmarked>> PostBookmarked(Bookmarked bookmarked)
         {
-            _context.Bookmarked.Add(bookmarkedTicket);
+            _context.Bookmarked.Add(bookmarked);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBookmarked", new { id = bookmarkedTicket.Id }, bookmarkedTicket);
+            return CreatedAtAction("GetBookmarked", new { id = bookmarked.Id }, bookmarked);
         }
 
         // DELETE: api/Bookmarked/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBookmarkedTicket(int id)
+        public async Task<IActionResult> DeleteBookmarked(int id)
         {
-            var bookmarkedTicket = await _context.Bookmarked.FindAsync(id);
-            if (bookmarkedTicket == null)
+            var bookmarked = await _context.Bookmarked.FindAsync(id);
+            if (bookmarked == null)
             {
                 return NotFound();
             }
 
-            _context.Bookmarked.Remove(bookmarkedTicket);
+            _context.Bookmarked.Remove(bookmarked);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool BookmarkedTicketExists(int id)
+        private bool BookmarkedExists(int id)
         {
             return _context.Bookmarked.Any(e => e.Id == id);
         }
