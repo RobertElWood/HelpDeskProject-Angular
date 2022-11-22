@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Ticket } from 'src/Ticket';
+import { Ticket } from 'src/Interfaces/Ticket';
 import { Observable } from 'rxjs';
-import { BookmarkedTicket } from 'src/BookmarkedTicket';
+import { Bookmarked } from 'src/Interfaces/Bookmarked';
 
 @Injectable({
   providedIn: 'root',
@@ -21,16 +21,17 @@ export class HelpDeskServiceService {
     return this.http.get<Ticket[]>(this.baseURL + 'api/Tickets');
   }
 
-  getBookmarkedTickets(): Observable<BookmarkedTicket[]> {
-    return this.http.get<BookmarkedTicket[]>(
-      this.baseURL + 'api/BookmarkedTickets'
-    );
+  getBookmarkedTickets(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.baseURL + 'api/Bookmarked');
   }
 
-  addBookmarkedTicket(bmTicket: BookmarkedTicket) {
+  addBookmarkedTicket(bmTicket: Bookmarked): Observable<any> {
     bmTicket.id = 0;
-    console.log(this.baseURL + 'api/BookmarkedTickets');
     console.log(bmTicket);
-    return this.http.post(this.baseURL + 'api/BookmarkedTickets', bmTicket);
+    return this.http.post(this.baseURL + 'api/Bookmarked', bmTicket);
+  }
+
+  deleteBookmarkTicket(index: any): Observable<any> {
+    return this.http.delete(this.baseURL + `api/Bookmarked/${index}`);
   }
 }

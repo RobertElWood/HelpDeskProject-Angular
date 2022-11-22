@@ -1,11 +1,11 @@
-<h3>Your Bookmarked Tickets:</h3>
-    <div *ngFor="let t of bmTickets">
-        <p>Id: {{t.id}}</p>
-        <p>Resolved: {{t.resolved}}</p>
-        <p>Question: {{t.problem}}</p>
-        <p>Answer: {{t.answer}}</p>
-        <p>Posted By: {{t.poster}}</p>
-        <p>Answered By: {{t.commenter}}</p>
-        <br>
-        <br>
-    </div>
+<h1>Your Bookmarked Tickets:</h1>
+<div *ngFor="let t of bookmarkResults; index as i">
+    <p>Id:{{t.id}}</p>
+    <p>Resolved: {{t.resolved}}</p>
+    <p>Question: {{t.problem}}</p>
+    <p>Answer: {{t.answer}}</p>
+    <p>Posted By: {{t.poster}}</p>
+    <p>Answered By: {{t.commenter}}</p>
+    <button (click)="getDeleteIndex(t.id)">Delete</button>
+</div>
+

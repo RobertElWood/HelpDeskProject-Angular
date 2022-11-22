@@ -1,11 +1,14 @@
 <h3>Our Active Tickets:</h3>
-<div *ngFor="let t of tickets; index as i">
-    <p>Id: {{t.id}}</p>
-    <p>Resolved: {{t.resolved}}</p>
-    <p>Question: {{t.problem}}</p>
-    <p>Answer: {{t.answer}}</p>
-    <p>Posted By: {{t.poster}}</p>
-    <p>Answered By: {{t.commenter}}</p>
-    <br>
-    <button (click)="bookmarkTicket(i)"> Bookmark</button>
+<div>
+    <ul>
+        <li *ngFor="let t of tickets; index as i">
+            <p>Id: {{t.id}}</p>
+            <p>Resolved: {{t.resolved}}</p>
+            <p>Question: {{t.problem}}</p>
+            <p>Answer: {{t.answer}}</p>
+            <p>Posted By: {{t.poster}}</p>
+            <p>Answered By: {{t.commenter}}</p>
+            <button (click)="bookmarkTicket(t.id)"> Bookmark</button>
+        </li>
+    </ul>
 </div>
