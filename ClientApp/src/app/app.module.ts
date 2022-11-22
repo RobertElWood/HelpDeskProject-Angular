@@ -7,22 +7,22 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TicketsListComponent } from './tickets-list/tickets-list.component';
 import { BookmarkedListComponent } from './bookmarked-list/bookmarked-list.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { CreateTicketComponent } from './create-ticket/create-ticket.component';
+import { UpdateTicketComponent } from './update-ticket/update-ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     TicketsListComponent,
     BookmarkedListComponent,
     TicketDetailComponent,
+    CreateTicketComponent,
+    UpdateTicketComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,11 +30,11 @@ import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'tickets-list', component: TicketsListComponent },
       { path: 'bookmarked-list', component: BookmarkedListComponent },
       { path: 'ticket-detail/:id', component: TicketDetailComponent},
+      { path: 'create-ticket', component: CreateTicketComponent},
+      { path: 'update-ticket/:id', component: UpdateTicketComponent},
     ]),
   ],
   providers: [],
