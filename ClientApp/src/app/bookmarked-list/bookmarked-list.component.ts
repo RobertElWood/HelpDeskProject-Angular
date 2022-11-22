@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BookmarkedTicket } from 'src/BookmarkedTicket';
+import { Bookmarked } from 'src/Interfaces/Bookmarked';
+import { Ticket } from 'src/Interfaces/Ticket';
 import { HelpDeskServiceService } from '../help-desk-service.service';
 
 @Component({
@@ -8,16 +9,33 @@ import { HelpDeskServiceService } from '../help-desk-service.service';
   styleUrls: ['./bookmarked-list.component.css'],
 })
 export class BookmarkedListComponent implements OnInit {
-  
-  bmTickets: BookmarkedTicket[] = [];
+  bmTickets: Bookmarked[] = [];
+
+  bookmarkResults: Ticket[] = [];
+
+  // just one object
+  // ticketToDelete: Bookmarked = {} as Bookmarked;
 
   constructor(private helpdeskAPI: HelpDeskServiceService) {}
 
   ngOnInit(): void {
-    this.helpdeskAPI
-      .getBookmarkedTickets()
-      .subscribe((results: BookmarkedTicket[]) => {
-        this.bmTickets = results;
-      });
+    this.getBookmarks();
+  }
+
+  getBookmarks() {
+    this.helpdeskAPI.getBookmarkedTickets().subscribe((results: Ticket[]) => {
+      this.bookmarkResults = results;
+    });
+  }
+  getDeleteIndex(index: number) {
+    this.helpdeskAPI.deleteBookmarkTicket(index).subscribe((result: any) => {
+      console.log(result);
+      this.deleteBookmark(index);
+    });
+  }
+
+  deleteBookmark(i: number): void {
+    this.bookmarkResults.splice(i, 1);
+    this.getBookmarks();
   }
 }
