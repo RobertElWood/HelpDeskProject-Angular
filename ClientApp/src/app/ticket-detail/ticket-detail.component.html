@@ -8,10 +8,15 @@
             <p>Answer: {{t.answer}}</p>
             <p>Posted By: {{t.poster}}</p>
             <p>Answered By: {{t.commenter}}</p>
-            <button (click)="bookmarkTicket(t.id)"> Bookmark</button>
+            <div *ngIf="t.resolved !== true">
+            <button [routerLink]="['/update-ticket', t.id]">Answer This Question</button>
+            </div>
             <br>
             <br>
-            <button (click)="onBack()">Back To Tickets</button>
+            <button (click)="bookmarkTicket(t.id)"> Bookmark This Ticket</button>
+            <br>
+            <br>
+            <button (click)="onBack()">Back To List</button>
         </li>
     </ul>
 </div>

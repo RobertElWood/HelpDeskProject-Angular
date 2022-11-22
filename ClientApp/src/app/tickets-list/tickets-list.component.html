@@ -1,14 +1,25 @@
-<h3>Our Archived Tickets:</h3>
-<div>
-    <ul>
-        <li *ngFor="let t of tickets">
-            <p>Ticket# {{t.id}}</p>
-            <p>Active: {{!t.resolved}}</p>
-            <p>Question: {{t.problem}}</p>
-            <button [routerLink]= "['/ticket-detail', t.id]"> View Details</button>
-            <br>
-            <br>
-            <br>
-        </li>
-    </ul>
-</div>
+<html>
+    <head>
+    </head>
+    <body>
+    <h3>Our Archived Tickets:</h3>
+        <div>
+            <ul>
+                <li *ngFor="let t of tickets">
+                    <p>Ticket# {{t.id}}</p>
+                    <p>Active: {{!t.resolved}}</p>
+                    <p>Question: {{t.problem}}</p>
+                    <button [routerLink]= "['/ticket-detail', t.id]"> View Details</button>
+                    <br>
+                    <br>
+                    <br>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <button [routerLink]="['/create-ticket']">Ask A Question</button>
+        <br>
+        <br>
+        <br>
+    </body>
+</html>
