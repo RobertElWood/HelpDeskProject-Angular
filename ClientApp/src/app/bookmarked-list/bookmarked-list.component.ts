@@ -9,33 +9,43 @@ import { HelpDeskServiceService } from '../help-desk-service.service';
   styleUrls: ['./bookmarked-list.component.css'],
 })
 export class BookmarkedListComponent implements OnInit {
+ 
   bmTickets: Bookmarked[] = [];
 
   bookmarkResults: Ticket[] = [];
-
-  // just one object
-  // ticketToDelete: Bookmarked = {} as Bookmarked;
 
   constructor(private helpdeskAPI: HelpDeskServiceService) {}
 
   ngOnInit(): void {
     this.getBookmarks();
+
   }
 
   getBookmarks() {
-    this.helpdeskAPI.getBookmarkedTickets().subscribe((results: Ticket[]) => {
-      this.bookmarkResults = results;
-    });
-  }
-  getDeleteIndex(index: number) {
-    this.helpdeskAPI.deleteBookmarkTicket(index).subscribe((result: any) => {
-      console.log(result);
-      this.deleteBookmark(index);
+    this.helpdeskAPI.getBookmarkedTickets().subscribe((results: Bookmarked[]) => {
+      this.bmTickets = results;
+      console.log(results);
+      this.getTicketData(); 
     });
   }
 
-  deleteBookmark(i: number): void {
-    this.bookmarkResults.splice(i, 1);
-    this.getBookmarks();
+  getTicketData() {
+    for (let i = 0; i < this.bmTickets.length; i++) {
+      this.helpdeskAPI.getSpecificTicket(this.bmTickets[i].ticketsId).subscribe((result: Ticket) => {
+        this.bookmarkResults.push(result);
+      });
+    }
   }
+
+  getDeleteIndex(indexBM: number, indexT : number) {
+    this.helpdeskAPI.deleteBookmarkTicket(indexBM).subscribe(() => {
+      this.deleteBookmark(indexT);
+    });
+  }
+
+  deleteBookmark(index : number): void {
+    this.bmTickets.splice(index, 1);
+    this.bookmarkResults.splice(index, 1);
+  }
+
 }
