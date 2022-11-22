@@ -1,14 +1,14 @@
-<h3>Our Active Tickets:</h3>
+<h3>Our Archived Tickets:</h3>
 <div>
     <ul>
-        <li *ngFor="let t of tickets; index as i">
-            <p>Id: {{t.id}}</p>
-            <p>Resolved: {{t.resolved}}</p>
+        <li *ngFor="let t of tickets">
+            <p>Ticket# {{t.id}}</p>
+            <p>Active: {{!t.resolved}}</p>
             <p>Question: {{t.problem}}</p>
-            <p>Answer: {{t.answer}}</p>
-            <p>Posted By: {{t.poster}}</p>
-            <p>Answered By: {{t.commenter}}</p>
-            <button (click)="bookmarkTicket(t.id)"> Bookmark</button>
+            <button [routerLink]= "['/ticket-detail', t.id]"> View Details</button>
+            <br>
+            <br>
+            <br>
         </li>
     </ul>
 </div>

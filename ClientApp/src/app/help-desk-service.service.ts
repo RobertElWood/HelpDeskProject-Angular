@@ -21,8 +21,12 @@ export class HelpDeskServiceService {
     return this.http.get<Ticket[]>(this.baseURL + 'api/Tickets');
   }
 
-  getBookmarkedTickets(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.baseURL + 'api/Bookmarked');
+  getSpecificTicket(id : number): Observable<Ticket> {
+    return this.http.get<Ticket>(this.baseURL + `api/Tickets/${id}`);
+  }
+
+  getBookmarkedTickets(): Observable<Bookmarked[]> {
+    return this.http.get<Bookmarked[]>(this.baseURL + 'api/Bookmarked');
   }
 
   addBookmarkedTicket(bmTicket: Bookmarked): Observable<any> {

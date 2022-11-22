@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TicketsListComponent } from './tickets-list/tickets-list.component';
 import { BookmarkedListComponent } from './bookmarked-list/bookmarked-list.component';
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BookmarkedListComponent } from './bookmarked-list/bookmarked-list.compo
     FetchDataComponent,
     TicketsListComponent,
     BookmarkedListComponent,
+    TicketDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,6 +34,7 @@ import { BookmarkedListComponent } from './bookmarked-list/bookmarked-list.compo
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'tickets-list', component: TicketsListComponent },
       { path: 'bookmarked-list', component: BookmarkedListComponent },
+      { path: 'ticket-detail/:id', component: TicketDetailComponent},
     ]),
   ],
   providers: [],
