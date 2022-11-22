@@ -1,1 +1,12 @@
-<p>create-ticket works!</p>
+<h3>Ask A Question</h3>
+<p>Please enter the following information to create your post:</p>
+<br>
+<p>Your Username:</p>
+<input type="text" [(ngModel)]="newTicket.poster">
+<br>
+<br>
+<p>Your Question:</p>
+<input type="text" [(ngModel)]="newTicket.problem">
+<br>
+<br>
+<button (click)="createNewTicket()">Submit & Return</button>
