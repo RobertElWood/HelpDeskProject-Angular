@@ -15,9 +15,11 @@ public partial class HelpDeskDbContext : DbContext
     {
     }
 
-    public virtual DbSet<BookmarkedTicket> BookmarkedTickets { get; set; }
+    public virtual DbSet<Bookmarked> Bookmarked { get; set; }
 
     public virtual DbSet<Ticket> Tickets { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -25,24 +27,36 @@ public partial class HelpDeskDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<BookmarkedTicket>(entity =>
+        modelBuilder.Entity<Bookmarked>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Bookmark__3214EC07860DDE6F");
+            entity.HasKey(e => e.Id).HasName("PK__Bookmark__3214EC0798B939E1");
 
-            entity.Property(e => e.Answer).HasMaxLength(200);
-            entity.Property(e => e.Poster).HasMaxLength(25);
-            entity.Property(e => e.Problem).HasMaxLength(200);
-            entity.Property(e => e.Commenter).HasMaxLength(25);
+            entity.ToTable("Bookmarked");
+
+            entity.HasOne(d => d.Tickets).WithMany(p => p.Bookmarked)
+                .HasForeignKey(d => d.TicketsId)
+                .HasConstraintName("FK__Bookmarke__Ticke__4CA06362");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Bookmarked)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__Bookmarke__UserI__4BAC3F29");
         });
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Tickets__3214EC0768EC0F1D");
+            entity.HasKey(e => e.Id).HasName("PK__Tickets__3214EC070860C06D");
 
             entity.Property(e => e.Answer).HasMaxLength(200);
+            entity.Property(e => e.Commenter).HasMaxLength(25);
             entity.Property(e => e.Poster).HasMaxLength(25);
             entity.Property(e => e.Problem).HasMaxLength(200);
-            entity.Property(e => e.Commenter).HasMaxLength(25);
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC074096251B");
+
+            entity.Property(e => e.Poster).HasMaxLength(30);
         });
 
         OnModelCreatingPartial(modelBuilder);

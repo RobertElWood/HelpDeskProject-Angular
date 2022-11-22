@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { BookmarkedTicket } from 'src/BookmarkedTicket';
-import { Ticket } from 'src/Ticket';
+import { Component, OnInit } from '@angular/core';
+import { Bookmarked } from 'src/Interfaces/Bookmarked';
+import { Ticket } from 'src/Interfaces/Ticket';
 import { HelpDeskServiceService } from '../help-desk-service.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { HelpDeskServiceService } from '../help-desk-service.service';
 export class TicketsListComponent implements OnInit {
   tickets: Ticket[] = [];
 
-  ticketToBookmark: BookmarkedTicket = {} as BookmarkedTicket;
+  ticketToBookmark: Bookmarked = {} as Bookmarked;
 
   constructor(private helpdeskAPI: HelpDeskServiceService) {}
 
@@ -23,7 +23,9 @@ export class TicketsListComponent implements OnInit {
   }
 
   bookmarkTicket(index: number) {
-    this.ticketToBookmark = this.tickets[index];
+    this.ticketToBookmark.userId = 1;
+    this.ticketToBookmark.id = 0;
+    this.ticketToBookmark.ticketsId = index;
     this.helpdeskAPI
       .addBookmarkedTicket(this.ticketToBookmark)
       .subscribe((results: any) => {

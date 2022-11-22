@@ -16,4 +16,6 @@ public partial class Ticket
     public string Poster { get; set; } = null!;
 
     public string? Commenter { get; set; }
+
+    public virtual ICollection<Bookmarked> Bookmarked { get; } = new List<Bookmarked>();
 }
