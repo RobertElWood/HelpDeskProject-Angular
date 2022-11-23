@@ -1,26 +1,14 @@
-<div>
-    <ul>
-        <li *ngFor="let t of tickets; index as i">
-            <h3>Ticket {{t.id}}</h3>
-            <br>
-            <p>Resolved: {{t.resolved}}</p>
-            <p>Question: {{t.problem}}</p>
-            <div *ngIf="t.answer !== null">
-            <p>Answer: {{t.answer}}</p>
-            </div>
-            <p>Posted By: {{t.poster}}</p>
-            <div *ngIf="t.commenter !== null">
-            <p>Answered By: {{t.commenter}}</p>
-            </div>
-            <div *ngIf="t.resolved !== true">
-            <button [routerLink]="['/update-ticket', t.id]">Answer This Question</button>
-            </div>
-            <br>
-            <br>
-            <button (click)="bookmarkTicket(t.id)"> Bookmark This Ticket</button>
-            <br>
-            <br>
-            <button (click)="onBack()">Back To List</button>
-        </li>
-    </ul>
-</div>
+<h1>Ticket Detail</h1>
+<ul class="ticket-list">
+    <li class="list-item" *ngFor="let t of tickets; index as i">
+        <h2>Ticket {{t.id}}</h2>
+        <p>Resolved: {{t.resolved}}</p>
+        <p>Question: {{t.problem}}</p>
+        <p *ngIf="t.answer !== null">Answer: {{t.answer}}</p>
+        <p>Posted By: {{t.poster}}</p>
+        <p *ngIf="t.commenter !== null">Answered By: {{t.commenter}}</p>
+        <button *ngIf="t.resolved !== true" [routerLink]="['/update-ticket', t.id]">Answer This Question</button>
+        <button (click)="bookmarkTicket(t.id)"> Bookmark This Ticket</button>
+        <button (click)="onBack()">Back To List</button>
+    </li>
+</ul>

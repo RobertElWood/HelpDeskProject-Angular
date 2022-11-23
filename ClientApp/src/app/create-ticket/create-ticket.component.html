@@ -1,12 +1,11 @@
-<h3>Ask A Question</h3>
-<p>Please enter the following information to create your post:</p>
-<br>
-<p>Your Username:</p>
-<input type="text" [(ngModel)]="newTicket.poster">
-<br>
-<br>
-<p>Your Question:</p>
-<input type="text" [(ngModel)]="newTicket.problem">
-<br>
-<br>
-<button (click)="createNewTicket()">Submit & Return</button>
+<h1>Ask A Question</h1>
+<div class="ticket-container">
+  <div class="question">
+    <p>Please enter the following information to create your post:</p>
+    <p>Your Username:</p>
+    <input class="input" type="text" [(ngModel)]="newTicket.poster">
+    <p>Your Question:</p>
+    <input class="input" type="text" [(ngModel)]="newTicket.problem">
+    <button (click)="createNewTicket()">Submit & Return</button>
+  </div>
+</div>
