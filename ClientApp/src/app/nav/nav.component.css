@@ -1,0 +1,40 @@
+.nav {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-size: 36px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10px 50px;
+  width: 100%;
+}
+
+.list-container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.item:hover {
+  text-decoration: underline;
+}
+
+.item {
+  list-style: none;
+}
+
+.item:first-of-type {
+  margin-right: 45px;
+}

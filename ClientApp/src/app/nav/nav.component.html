@@ -1,0 +1,15 @@
+<header>
+  <nav class="nav">
+    <div class="wrapper">
+      <a class="title" [routerLink]="['/']">The "Help" Desk</a>
+      <ul class="list-container">
+        <li class="item" [routerLinkActive]="['link-active']">
+          <a class="link" [routerLink]="['/tickets-list']">Tickets</a>
+        </li>
+        <li class="item" [routerLinkActive]="['link-active']">
+          <a class="link" [routerLink]="['/bookmarked-list']">Bookmarks</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
