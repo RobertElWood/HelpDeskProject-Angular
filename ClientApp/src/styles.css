@@ -52,6 +52,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 10px;
 }
 
 .list-item:hover {

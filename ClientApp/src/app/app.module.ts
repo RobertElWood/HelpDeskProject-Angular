@@ -28,7 +28,7 @@ import { UpdateTicketComponent } from './update-ticket/update-ticket.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'tickets-list', component: TicketsListComponent },
       { path: 'bookmarked-list', component: BookmarkedListComponent },
       { path: 'ticket-detail/:id', component: TicketDetailComponent},
