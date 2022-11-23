@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Ticket } from 'src/Interfaces/Ticket';
+import { HelpDeskServiceService } from '../help-desk-service.service';
 
 @Component({
   selector: 'app-create-ticket',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTicketComponent implements OnInit {
 
-  constructor() { }
+  newTicket : Ticket = {} as Ticket;
+
+  constructor(private helpDeskAPI : HelpDeskServiceService, private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  createNewTicket()
+  {
+    this.newTicket.resolved = false;
+    this.helpDeskAPI.addNewTicket(this.newTicket)
+    .subscribe(() => {
+    this.onBack();
+    });
+  }
+
+  onBack() : void {
+    this.router.navigate(['tickets-list']);
+  }
 }

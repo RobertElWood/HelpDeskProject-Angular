@@ -5,9 +5,13 @@
             <br>
             <p>Resolved: {{t.resolved}}</p>
             <p>Question: {{t.problem}}</p>
+            <div *ngIf="t.answer !== null">
             <p>Answer: {{t.answer}}</p>
+            </div>
             <p>Posted By: {{t.poster}}</p>
+            <div *ngIf="t.commenter !== null">
             <p>Answered By: {{t.commenter}}</p>
+            </div>
             <div *ngIf="t.resolved !== true">
             <button [routerLink]="['/update-ticket', t.id]">Answer This Question</button>
             </div>

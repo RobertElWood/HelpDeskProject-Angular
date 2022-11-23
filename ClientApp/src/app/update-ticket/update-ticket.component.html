@@ -1,1 +1,17 @@
-<p>update-ticket works!</p>
+<br>
+<h3>Question:</h3>
+<h4>{{foundTicket.problem}}</h4>
+<br>
+<p>Posted By: {{foundTicket.poster}}</p>
+<br>
+<p>Add Your Response Using the Fields Below:</p>
+<br>
+<p>Your Answer:</p>
+<input type="text" [(ngModel)]="foundTicket.answer">
+<br>
+<br>
+<p>Your Username:</p>
+<input type="text" [(ngModel)]="foundTicket.commenter">
+<br>
+<br>
+<button (click)="updateTicketAnswer()">Submit & Return</button>
