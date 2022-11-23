@@ -1,0 +1,27 @@
+.ticket-container {
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.question {
+  border: 3px solid #fff;
+  border-radius: 6px;
+  width: 400px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.input:first-of-type {
+    margin-bottom: 10px;
+}

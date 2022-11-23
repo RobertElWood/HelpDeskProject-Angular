@@ -23,7 +23,6 @@ export class BookmarkedListComponent implements OnInit {
   getBookmarks() {
     this.helpdeskAPI.getBookmarkedTickets().subscribe((results: Bookmarked[]) => {
       this.bmTickets = results;
-      console.log(results);
       this.getTicketData(); 
     });
   }

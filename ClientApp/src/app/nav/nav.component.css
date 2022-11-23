@@ -2,9 +2,8 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.brand {
+.title {
   font-size: 36px;
-  text-decoration: none;
 }
 
 .wrapper {
@@ -21,16 +20,21 @@
   padding: 0;
   margin: 0;
   height: 100%;
-
 }
+
 .link {
   text-decoration: none;
   font-size: 25px;
 }
+
+.item:hover {
+  text-decoration: underline;
+}
+
 .item {
   list-style: none;
-  
 }
-.item:first-of-type{
-    margin-right: 45px;
+
+.item:first-of-type {
+  margin-right: 45px;
 }

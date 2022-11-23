@@ -1,17 +1,13 @@
 <header>
   <nav class="nav">
     <div class="wrapper">
-      <a class="brand" [routerLink]="['/']">The "Help" Desk</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="title" [routerLink]="['/']">The "Help" Desk</a>
       <ul class="list-container">
         <li class="item" [routerLinkActive]="['link-active']">
-          <a class="link text-light" [routerLink]="['/tickets-list']">Tickets</a>
+          <a class="link" [routerLink]="['/tickets-list']">Tickets</a>
         </li>
         <li class="item" [routerLinkActive]="['link-active']">
-          <a class="link text-light" [routerLink]="['/bookmarked-list']">Bookmarked</a>
+          <a class="link" [routerLink]="['/bookmarked-list']">Bookmarks</a>
         </li>
       </ul>
     </div>

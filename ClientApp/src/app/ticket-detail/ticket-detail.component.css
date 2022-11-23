@@ -1,0 +1,21 @@
+.ticket-list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.list-item {
+  list-style: none;
+  border: 3px solid #fff;
+  border-radius: 6px;
+  width: 400px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+button + button {
+  margin-top: 15px;
+}
