@@ -1,7 +1,7 @@
 <h2>Our Archived Tickets</h2>
 <div class="ticket-container">
-    <ul class=>
-        <li class="ticket-list" *ngFor="let t of tickets">
+    <ul class="ticket-list">
+        <li class="list-item" *ngFor="let t of tickets">
             <p>Ticket# {{t.id}}</p>
             <p>Active: {{!t.resolved}}</p>
             <p>Question: {{t.problem}}</p>
