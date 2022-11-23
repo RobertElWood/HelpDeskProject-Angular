@@ -1,17 +1,15 @@
-<div>
-    <ul>
-        <li *ngFor="let t of tickets; index as i">
-            <h3>Ticket {{t.id}}</h3>
-            <br>
-            <p>Resolved: {{t.resolved}}</p>
-            <p>Question: {{t.problem}}</p>
-            <p>Answer: {{t.answer}}</p>
-            <p>Posted By: {{t.poster}}</p>
-            <p>Answered By: {{t.commenter}}</p>
-            <button (click)="bookmarkTicket(t.id)"> Bookmark</button>
-            <br>
-            <br>
-            <button (click)="onBack()">Back To Tickets</button>
-        </li>
-    </ul>
-</div>
+<ul>
+    <li *ngFor="let t of tickets; index as i">
+        <h3>Ticket {{t.id}}</h3>
+        <br>
+        <p>Resolved: {{t.resolved}}</p>
+        <p>Question: {{t.problem}}</p>
+        <p>Answer: {{t.answer}}</p>
+        <p>Posted By: {{t.poster}}</p>
+        <p>Answered By: {{t.commenter}}</p>
+        <button (click)="bookmarkTicket(t.id)"> Bookmark</button>
+        <br>
+        <br>
+        <button (click)="onBack()">Back To Tickets</button>
+    </li>
+</ul>
