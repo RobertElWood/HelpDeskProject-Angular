@@ -1,4 +1,5 @@
 <h1>Ticket Detail</h1>
+<div class="ticket-container">
 <ul class="ticket-list">
     <li class="list-item" *ngFor="let t of tickets; index as i">
         <h2>Ticket {{t.id}}</h2>
@@ -12,3 +13,4 @@
         <button (click)="onBack()">Back To List</button>
     </li>
 </ul>
+</div>
